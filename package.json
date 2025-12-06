@@ -1,0 +1,77 @@
+{
+  "name": "file-share-tool-pro",
+  "version": "1.0.0",
+  "description": "完整功能的文件共享工具 - 支持托盘图标、系统通知、拖拽上传",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "文件共享",
+    "局域网",
+    "文件传输",
+    "拖拽上传",
+    "手机访问"
+  ],
+  "author": "文件共享工具",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.fileshare.tool.pro",
+    "productName": "文件共享工具完整版",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!dist",
+      "!.git",
+      "!*.log",
+      "!*.md"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "文件共享工具",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico"
+    },
+    "portable": {
+      "artifactName": "文件共享工具便携版.exe"
+    },
+    "extraResources": [
+      "icon.ico",
+      "icon.png",
+      "files/**"
+    ]
+  }
+}
